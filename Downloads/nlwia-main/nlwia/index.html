@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <title>Shorts Summary</title>
+
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #333; /* Dark background for contrast */
+        color: #fff; /* Default text color to white */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #app {
+        text-align: center;
+      }
+
+      h1 {
+        color: #ffffff; /* White color for the heading */
+        font-size: 3rem; /* Increase font size */
+        margin: 0 0 20px 0;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column; /* Aligns children elements in a column */
+        align-items: center; /* Center-aligns children horizontally */
+        gap: 10px; /* Space between input and buttons */
+      }
+
+      input[type="url"] {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        width: 250px; /* Adjust width for better layout */
+      }
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        transition: background-color 0.3s ease; /* Smooth transition for background color */
+        width: 200px; /* Uniform button width */
+      }
+
+      button i {
+        margin-right: 8px; /* Space between icon and text */
+      }
+
+      button#play {
+        background-color: #007bff; /* Blue background for the play button */
+      }
+
+      button#play:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+      }
+
+      button#redirect {
+        background-color: #28a745; /* Green background for the redirect button */
+      }
+
+      button#redirect:hover {
+        background-color: #218838; /* Darker green on hover */
+      }
+
+      h2 {
+        color: #ffffff; /* White color for the subheading */
+        margin: 20px 0;
+      }
+
+      p#content {
+        color: #ddd; /* Lighter color for the paragraph */
+      }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img src="/renan100.svg" alt="Logo" />
+        <h1>Renan Shorts</h1>
+
+        <form id="form" onsubmit="return handleSubmit(event)">
+            <input type="url" id="url" placeholder="URL do vídeo" required />
+            <button type="submit" id="play" title="Resumir">
+                <i class="fas fa-play"></i> Resumir
+            </button>
+            <button type="button" id="redirect" title="Ir ao Vídeo" onclick="redirectToVideo()">
+                <i class="fas fa-external-link-alt"></i> Ir ao Vídeo
+            </button>
+        </form>
+
+        <h2>Resumo</h2>
+        <p id="content" class="placeholder">Escolha um short para resumir</p>
+    </div>
+    <script type="module" src="web/main.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault();
+        // Adicione aqui a lógica para lidar com o resumo do vídeo
+        console.log("Resumo do vídeo");
+      }
+
+      function redirectToVideo() {
+        const urlInput = document.getElementById('url');
+        const videoUrl = urlInput.value;
+        if (videoUrl) {
+          window.open(videoUrl, '_blank'); // Abre o link em uma nova aba
+        } else {
+          alert('Por favor, insira uma URL válida.');
+        }
+      }
+    </script>
+</body>
+</html>
